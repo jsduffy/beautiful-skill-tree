@@ -38,7 +38,7 @@ function SkillNode({
   updateSkillState,
   handleNodeSelect = () => null,
 }: Props) {
-  const { children, title, tooltip, id, optional } = skill;
+  const { children, tooltip, id, optional } = skill;
   const [parentPosition, setParentPosition] = React.useState(0);
 
   const skillNodeRef: React.RefObject<HTMLDivElement> = React.useRef(null);
@@ -100,7 +100,7 @@ function SkillNode({
           childWidth={childWidth.current}
           data-testid="skill-node-overlay"
         />
-        <Tooltip title={title} tooltip={tooltip}>
+        <Tooltip tooltip={tooltip}>
           <Node
             handleClick={handleClick}
             id={id}

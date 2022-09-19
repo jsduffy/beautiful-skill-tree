@@ -29,6 +29,7 @@ export interface SkillCount {
 
 export interface Tooltip {
   content: React.ReactNode;
+  titleContent: React.ReactElement;
   direction?: TooltipDirection;
 }
 

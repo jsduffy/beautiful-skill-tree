@@ -12,13 +12,12 @@ import { SkillTheme } from 'theme';
 
 interface Props {
   children: React.ReactElement;
-  title: string;
   tooltip: Tooltip;
 }
 
 function Tooltip(props: Props) {
-  const { children, tooltip, title } = props;
-  const { direction = 'top', content } = tooltip;
+  const { children, tooltip } = props;
+  const { direction = 'top', content, titleContent } = tooltip;
   const { tooltipZIndex } = useContext<SkillTheme>(ThemeContext);
   const tooltipRef = useRef<Instance<TProps> | null>(null);
   const isMobile = useMobile();
@@ -39,10 +38,10 @@ function Tooltip(props: Props) {
       <TooltipContent
         handleClose={hideTooltip}
         content={content}
-        title={title}
+        titleContent={titleContent}
       />
     );
-  }, [content, title]);
+  }, [content]);
 
   return (
     <StyledTippy

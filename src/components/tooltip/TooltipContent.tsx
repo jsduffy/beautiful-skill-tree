@@ -5,19 +5,19 @@ import CloseIcon from '../../images/close.svg';
 
 type Props = {
   content: React.ReactNode;
-  title: string;
   handleClose: () => void;
+  titleContent: React.ReactElement;
 };
 
 const TooltipContent = React.memo(function({
   content,
-  title,
+  titleContent,
   handleClose,
 }: Props) {
   return (
     <React.Fragment>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Title>{title}</Title>
+        <React.Fragment>{titleContent}</React.Fragment>
         <img
           onClick={handleClose}
           style={{
@@ -35,10 +35,6 @@ const TooltipContent = React.memo(function({
 });
 
 export default TooltipContent;
-
-const Title = styled.h1`
-  margin: 8px 0;
-`;
 
 const ContentContainer = styled.div`
   margin: 8px 0;
