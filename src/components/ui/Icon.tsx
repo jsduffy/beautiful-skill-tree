@@ -32,7 +32,7 @@ const StyledIcon = styled.div.attrs<StyledIconProps>(props => ({
 
 const Image = styled.img`
   pointer-events: none;
-  height: 75%;
+  height: 100%;
   margin: auto;
-  width: 75%;
+  width: 100%;
 `;
