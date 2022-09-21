@@ -34,6 +34,7 @@ export const legsPushData: SkillType[] = [
   {
     id: 'ass-squat',
     title: 'Assisted Squat',
+    hideTooltip: true,
     tooltip: {
       titleContent: <>Something</>,
       content: <FakeContent />,

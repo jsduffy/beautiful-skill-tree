@@ -51,6 +51,7 @@ interface BaseSkill {
   title: string;
   tooltip: Tooltip;
   children: Skill[];
+  hideTooltip?: boolean;
 }
 
 interface MajorSkill extends BaseSkill {
