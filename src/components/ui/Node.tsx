@@ -203,8 +203,8 @@ const StyledNode = styled.div<StyledNodeProps>`
   ${props =>
     props.locked &&
     `
-        cursor: initial;
-        opacity: 0.65;
+        cursor: pointer;
+        
     `}
 `;
 

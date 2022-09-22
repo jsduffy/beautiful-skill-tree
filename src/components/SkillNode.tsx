@@ -92,7 +92,7 @@ function SkillNode({ skill, nodeState, handleNodeSelect = () => null }: Props) {
     <React.Fragment>
       <StyledSkillNode>
         <SkillNodeOverlay
-          selected={nodeState === SELECTED_STATE}
+          selected={true}
           childWidth={childWidth.current}
           data-testid="skill-node-overlay"
         />
@@ -181,7 +181,7 @@ const SkillNodeOverlay = styled.span<SkillNodeOverlayProps>`
   ${props =>
     props.selected &&
     css`
-      animation: ${fadeout} 3.5s 1;
+      animation: ${fadeout} 0.5s 1;
     `}
 `;
 
