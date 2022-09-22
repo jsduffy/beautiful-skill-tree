@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { throttle } from 'lodash';
 import styled, { BaseThemedCssFunction } from 'styled-components';
-import { LOCKED_STATE, UNLOCKED_STATE, SELECTED_STATE } from './constants';
+import { UNLOCKED_STATE, SELECTED_STATE } from './constants';
 import SkillTreeSegment from './SkillTreeSegment';
 import Tooltip from './tooltip/Tooltip';
 import { Skill, NodeState } from '../models';
@@ -30,14 +30,7 @@ interface SkillNodeOverlayProps {
   selected: boolean;
 }
 
-function SkillNode({
-  skill,
-  nodeState,
-  incSkillCount,
-  decSkillCount,
-  updateSkillState,
-  handleNodeSelect = () => null,
-}: Props) {
+function SkillNode({ skill, nodeState, handleNodeSelect = () => null }: Props) {
   const { children, tooltip, id, optional, hideTooltip } = skill;
   const [parentPosition, setParentPosition] = React.useState(0);
 
@@ -62,21 +55,22 @@ function SkillNode({
   }
 
   function handleClick() {
+    handleNodeSelect(id, nodeState);
     return null;
 
-    if (nodeState === LOCKED_STATE) {
-      return null;
-    }
-
-    if (nodeState === UNLOCKED_STATE) {
-      incSkillCount(optional);
-      handleNodeSelect(id, SELECTED_STATE);
-      return updateSkillState(id, SELECTED_STATE, optional);
-    }
-
-    handleNodeSelect(id, UNLOCKED_STATE);
-    decSkillCount(optional);
-    return updateSkillState(id, UNLOCKED_STATE, optional);
+    //    if (nodeState === LOCKED_STATE) {
+    //      return null;
+    //    }
+    //
+    //    if (nodeState === UNLOCKED_STATE) {
+    //      incSkillCount(optional);
+    //      handleNodeSelect(id, SELECTED_STATE);
+    //      return updateSkillState(id, SELECTED_STATE, optional);
+    //    }
+    //
+    //    handleNodeSelect(id, UNLOCKED_STATE);
+    //    decSkillCount(optional);
+    //    return updateSkillState(id, UNLOCKED_STATE, optional);
   }
 
   React.useEffect(() => {
