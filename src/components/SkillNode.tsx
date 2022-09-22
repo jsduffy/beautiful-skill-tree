@@ -62,6 +62,8 @@ function SkillNode({
   }
 
   function handleClick() {
+    return null;
+
     if (nodeState === LOCKED_STATE) {
       return null;
     }
